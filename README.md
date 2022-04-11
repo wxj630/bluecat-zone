@@ -1,5 +1,7 @@
 > bluecat-cms modified from https://github.com/stacklens/django-vue-tutorial
+
 > 作者个人主页： https://www.dusaiphoto.com/article/103/
+
 > 无root权限安装nodejs: https://cloud.tencent.com/developer/article/1783823
 
 

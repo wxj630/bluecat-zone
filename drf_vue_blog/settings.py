@@ -33,12 +33,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend/dist/"),
+    os.path.join(BASE_DIR, "static"),
 ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,12 +48,28 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'drf_vue_blog',
     'rest_framework',
     'article',
     'user_info',
     'comment',
     'service',
 ]
+SIMPLEUI_HOME_INFO = False
+# 设置simpleui 点击首页图标跳转的地址
+SIMPLEUI_INDEX = 'localhost:8080'
+SIMPLEUI_HOME_TITLE = 'Bluecat Backend'
+SIMPLEUI_ANALYSIS = False
+
+SIMPLEUI_ICON = {
+    '系统管理': 'fab fa-apple',
+    '员工管理': 'fas fa-user-tie'
+}
+
+# 修改首页设置, 指向新创建的控制面板
+# SIMPLEUI_HOME_PAGE = 'dashboard/'
+# SIMPLEUI_HOME_TITLE = '控制面板!' 
+# SIMPLEUI_HOME_ICON = 'fa fa-eye'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -157,3 +175,5 @@ SIMPLE_JWT = {
 
 MEDIA_URL =  '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+SIMPLEUI_LOGO = os.path.join(MEDIA_URL,'shield-cat-solid.png')
+FAVICON_PATH = os.path.join(MEDIA_URL,'/favicon.ico')
