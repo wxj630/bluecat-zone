@@ -67,9 +67,12 @@ SIMPLEUI_ICON = {
 }
 
 # 修改首页设置, 指向新创建的控制面板
-# SIMPLEUI_HOME_PAGE = 'dashboard/'
-# SIMPLEUI_HOME_TITLE = '控制面板!' 
+# SIMPLEUI_HOME_PAGE = '/article/dashboard'
+# SIMPLEUI_HOME_TITLE = '控制面板' 
 # SIMPLEUI_HOME_ICON = 'fa fa-eye'
+# 设置右上角Home图标跳转链接，会以另外一个窗口打开
+# SIMPLEUI_INDEX = '/article/dashboard'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -176,4 +179,3 @@ SIMPLE_JWT = {
 MEDIA_URL =  '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SIMPLEUI_LOGO = os.path.join(MEDIA_URL,'shield-cat-solid.png')
-FAVICON_PATH = os.path.join(MEDIA_URL,'/favicon.ico')

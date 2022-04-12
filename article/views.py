@@ -23,6 +23,24 @@ from article.serializers import ArticleDetailSerializer
 from article.models import Avatar
 from article.serializers import AvatarSerializer
 
+from django.contrib.auth.models import User
+from django.shortcuts import render
+from article.models import Article
+
+def dashboard(request):
+    user_count = User.objects.count()
+    article_count = Article.objects.count()
+
+    context = { 'user_count': user_count, 'task_count': article_count }
+    return render(request, 'admin/dashboard.html',context)
+
+def dashboard_home(request):
+    user_count = User.objects.count()
+    article_count = Article.objects.count()
+
+    context = { 'user_count': user_count, 'task_count': article_count }
+    return render(request, 'admin/home.html',context)
+
 
 class AvatarViewSet(viewsets.ModelViewSet):
     queryset = Avatar.objects.all()

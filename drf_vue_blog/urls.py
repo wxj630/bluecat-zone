@@ -15,10 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.staticfiles.views import serve
 
 from rest_framework.routers import DefaultRouter
-from drf_vue_blog.views import dashboard
 from article import views
 from comment.views import CommentViewSet
 
@@ -53,10 +51,9 @@ urlpatterns = [
 
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    # 这里可以配置网页收藏夹的图标
-    # path('favicon.ico', serve, {'path': '/admin/img/favicon.ico'}),
-    path('favicon.ico',RedirectView.as_view(url='https://avatars2.githubusercontent.com/u/13655483?s=60&v=4')),
-    path('admin/dashboard/', dashboard, name='dashboard'),
+
+    path('article/', include('article.urls')),
+    
 
     # article
     # path('api/article/', include('article.urls', namespace='article')),
