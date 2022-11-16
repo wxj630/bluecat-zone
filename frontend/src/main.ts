@@ -4,11 +4,12 @@ import router from './router';
 import naive from 'naive-ui'
 
 
-URLSearchParams.prototype.appendIfExists = function (key, value) {
-    if (value !== null && value !== undefined) {
-        this.append(key, value)
-    }
-};
+
+// URLSearchParams.prototype.appendIfExists = function (name: string, value: string) {
+//     if (value !== null && value !== undefined) {
+//         this.append(name, value)
+//     }
+// };
 
 const app = createApp(App);
 app.use(router);

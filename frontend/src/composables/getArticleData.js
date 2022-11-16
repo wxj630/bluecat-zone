@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {onMounted, watch} from 'vue'
 
+
 export default function getArticleData(info, route, kwargs) {
     const getData = async () => {
 
@@ -12,8 +13,10 @@ export default function getArticleData(info, route, kwargs) {
         let url = '/api/article';
 
         let params = new URLSearchParams();
-        params.appendIfExists('page', route.query.page);
-        params.appendIfExists('search', route.query.search);
+        // params.append('page', route.query.page);
+        // params.append('search', route.query.search);
+        params = appendIfExists(params, 'page', route.query.page)
+        params = appendIfExists(params, 'search', route.query.search)
 
         const paramsString = params.toString();
         if (paramsString.charAt(0) !== '') {
@@ -31,4 +34,11 @@ export default function getArticleData(info, route, kwargs) {
     onMounted(getData);
 
     watch(route, getData);
+}
+
+function appendIfExists(params, key, value) {
+    if (value !== null && value !== undefined) {
+        params.append(key, value)
+    }
+    return params
 }
